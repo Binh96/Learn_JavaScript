@@ -6,15 +6,14 @@
         // Build own forEach()
 const courses = ["javascript", "PHP", "Python"];
 
-
-Array.prototype.ownForEach = function(callbackFn, arg){
-    for(let i in this){
-        if(this.hasOwnProperty(i)){
-           callbackFn(this[i], i, this);
+Array.prototype.ownForeach = function(callbackFn, arg){
+    for(let index in this){
+        if(this.hasOwnProperty(index)){
+            callbackFn(this[index], index, this);
         }
     }
 }
 
-courses.ownForEach(function(course,index,array){
+courses.ownForeach((course, index, array) => {
     console.log(course, index, array);
 });
