@@ -8,8 +8,17 @@
 
 Array.prototype.ownIncludes = function (searchElement, fromIndex){
     var output= false;
-    for(var index in this){
-        if(this.hasOwnProperty(index)){
+    var start = 0;
+    var l = this.length;
+    if(fromIndex == undefined){
+        for(var index = start; index <= l ; index++){
+            if(this[index]===searchElement){
+                output= true;
+            }
+        }
+    }
+    else{
+        for(var index = fromIndex; index <= l ; index++){
             if(this[index]===searchElement){
                 output= true;
             }
@@ -19,6 +28,6 @@ Array.prototype.ownIncludes = function (searchElement, fromIndex){
 }
 
 
-const array = [1, 2, 3];
+const array = [1, 2, 3, 4, 5, 6, 7, 8];
 
-console.log(array.ownIncludes(3))
+console.log(array.ownIncludes(5))
